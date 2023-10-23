@@ -1,1 +1,12 @@
-./node_modules
+# Ignore node_modules directory
+/node_modules
+
+# Ignore report directory
+/reports
+/cypress/cucumber-json
+
+# Ignore screenshots
+/cypress/screenshots
+
+# Ignore videos
+/cypress/videos

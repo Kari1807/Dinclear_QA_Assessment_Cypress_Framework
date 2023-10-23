@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import LoginPage from "../e2e/cucumber/pages/loginPage";
+
+const loginPage = new LoginPage();
+Cypress.Commands.add("login", (email, password) => {
+    cy.visit('/insurance/v1/index.php')
+    //login to the application with valid credentials
+    loginPage.email().type(email);
+    loginPage.password().type(password);
+    loginPage.loginButton().click();
+  });
+  

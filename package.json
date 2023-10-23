@@ -4,19 +4,31 @@
   "description": "The CYPRESS BDD (Gherkin) test automation framework for FinClear QA Technical Assessment.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:run:local": "npx cypress run",
+    "cypress:open:local": "npx cypress open",
+    "generate-report": "node cucumber-html-report.js",
+    "clean-report": "npx rimraf cypress/cucumber-json cypress/videos cypress/screenshots reports",
+    "cypress:run:generate-report": "npm run cypress:run:local && npm run generate-report",
+    "cypress:run:tags": "npx cypress-tags run -e TAGS=\"@regression\""
   },
   "author": "Karishma Srivastava",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.2",
-    "faker": "^5.5.3"
+    "faker": "^5.5.3",
+    "multiple-cucumber-html-reporter": "^3.5.0"
   },
   "dependencies": {
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "step_definitions": "cypress/e2e/cucumber/step_definition"
+    "step_definitions": "cypress/e2e/cucumber/step_definition",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

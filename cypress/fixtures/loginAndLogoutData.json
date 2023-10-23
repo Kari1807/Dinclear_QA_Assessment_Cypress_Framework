@@ -1,4 +1,9 @@
-{
+{ "validUser": {
     "email": "karishma@gmail.com",
     "password": "Password@1"
+  },
+  "invalidUser": {
+    "email": "test@gmail.com",
+    "password": "Password@1"
   }
+}

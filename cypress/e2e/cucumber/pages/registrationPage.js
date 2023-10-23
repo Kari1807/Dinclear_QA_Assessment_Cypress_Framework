@@ -1,6 +1,5 @@
 class RegistrationPage {
 
-
     registrationButton(){
         return cy.get('a[href*="register"]');
     }
@@ -33,7 +32,7 @@ class RegistrationPage {
         return cy.get('#user_dateofbirth_3i');
     } 
     
-     selectLicenceType(licenceType) {
+    selectLicenceType(licenceType) {
         const normalizedLicenceType = licenceType.toLowerCase();
       
         if (normalizedLicenceType === 'full') {
@@ -44,9 +43,8 @@ class RegistrationPage {
           // Default case or handle other values as needed
           return cy.get('#licencetype_t');
         }
-      }
-      
-
+    }
+    
     selectLicencePeriod(){
         return cy.get('#user_licenceperiod');
     }
@@ -86,7 +84,5 @@ class RegistrationPage {
     createButton(){
         return cy.get('[name="submit"]');
     }
-
 }
-
 export default RegistrationPage;
